@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+        <title>Biblio</title>    
+    {% endblock %}
+    <link rel="stylesheet" href="/visuals/layout.css">
+</head>
+<body>
+    <header>
+        <nav class="links">    
+            <a href="/">BIBLIO</a>
+            <a href="/books">Livros</a>
+            <a href="/students">Alunos</a>
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
+    <script src="/scripts/scriptsIndex.js"></script>
+</body>
+</html>
