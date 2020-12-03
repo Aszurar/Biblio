@@ -17,6 +17,7 @@
     --color-green-dark: rgb(4, 119, 56);
     --color-purple: rgb(113, 89, 193);
     --color-coral: #DC4747;
+    --color-yellow: #f7df1e;
 }
 
 *{
@@ -77,10 +78,21 @@ header{
     background-color: var(--color-purple);
     position: absolute;
     left: 0;
-    bottom: -0.375rem;
+    bottom: -0.1rem;
 }
 
 .links a:hover::after{
     width: 100%;
     transition: width 500ms ease-in-out;
+}
+
+.links a.active{
+    font-weight: bold;
+    color: var(--color-purple);
+    border-bottom: 2px solid var(--color-purple);
+}
+
+.links a.active:first-child{
+    border: 0;
+    color: var(--color-white);
 }

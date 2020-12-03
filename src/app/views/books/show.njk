@@ -1,0 +1,75 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/visuals/create.css">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+
+        <div class="card">
+            <section class="avatar"
+                     style="background: url({{book.avatar}}) 
+                           no-repeat center center / cover">
+            </section>
+    
+            <section class="info">
+                <h3>{{book.title}}</h3>
+
+
+                <div class="item show">
+                    <div>Nome Completo:</div>
+                    <div>{{book.name}}</div>
+                </div>
+
+                <div class="item show">
+                    <div>Quantidade de livros disponiveis:</div>
+                    <div>{{book.quantidade}}</div>
+                </div>
+                
+                <div class="item show">
+                    <div>Disciplina(s):</div> 
+                    <div>{{book.disciplina}}</div>
+                </div>
+                
+                <div class="item show">
+                    <div>Gênero(s):</div> 
+                    <div>
+                        {% for genero in book.genero %}
+                            <span>{{genero}}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+    
+                <div class="item show">
+                    <div>Autor(es):</div> 
+                    <div>{{book.autor}}</div>
+                </div>
+
+                <div class="item show">
+                    <div>ISBN(13):</div>
+                    <div>{{book.isbn}}</div>
+                </div>
+
+                <div class="item show">
+                    <div>Idioma:</div>
+                    <div>{{book.idioma}}</div>
+                </div>
+
+                <div class="item show">
+                    <div>Quantidade de páginas:</div>
+                    <div>{{book.paginas}}</div>
+                </div>
+
+                <a class="buttonEdit">Editar</a>
+
+                <form id="form-delete" action="/books?_method=DELETE" method="post">
+                    <input type="hidden" name="id" value={{book.id}}>                
+                    <button class="buttonDelete" type="submit">Deletar</button>
+                </form>
+
+            </section>
+        </div>
+    </main>
+{% include "../confirm.njk" %}
+{% endblock %}

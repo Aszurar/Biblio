@@ -1,6 +1,5 @@
 const db = require('../../config/db')
 
-
 module.exports = {
 
     paginate(params){
@@ -41,19 +40,68 @@ module.exports = {
             callback(results.rows)
         })
 
-    }
+    },
 
+    create(data, callback){
+
+        const query = `
+            INSERT INTO books(
+                isbn,
+                avatar,
+                name,
+                genero,
+                disciplina,
+                idioma,
+                quantidade,
+                paginas,
+                title,
+                autor
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+            RETURNING id
+        `
+
+        const values = [
+            data.isbn,
+            data.imagem,
+            data.name,
+            data.genero,
+            data.disciplina,
+            data.idioma,
+            data.quantidade,
+            data.paginas,
+            data.title,
+            data.autor
+        ]
+
+        console.log(values);
+
+        db.query(query, values, function(err, results){
+            if(err) throw`Database erro, Create function: ${err}`
+
+            callback(results.rows[0])
+        })
+    },
+
+    find(id, callback){
+        const query = `SELECT * FROM books
+                       WHERE id = $1`
+        
+        db.query(query, [id], function(err, results){
+            if(err) throw `Database erro, Find function: ${err}`
+
+            callback(results.rows[0])
+        })
+    },
+    
+    delete(id, callback){
+        const query = `DELETE FROM books
+                       WHERE id = $1
+                      `
+        db.query(query, [id], function(err, results){
+            if(err) throw `Database erro, Delete function: ${err}`
+            
+            return callback()
+        })
+    }
 }
 
-
-// INSERT INTO books(
-	// ISBN,
-//   avatar,
-//   name,
-//   genero,
-//   disciplina,
-//   idioma,
-//   quantidade,
- 	// paginas
-// ) VALUES ('978-8595084759', 'https://images-na.ssl-images-amazon.com/images/I/41UsJRucm4L._SX325_BO1,204,203,200_.jpg', 'O Senhor dos Anéis: A Sociedade do Anel', 'Aventura, Épico e Fantasia','História Medieval: A Idade das Trevas', 'Português(BR)', 52, 576)
-// 

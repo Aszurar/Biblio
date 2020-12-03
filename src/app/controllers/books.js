@@ -1,5 +1,5 @@
 const Book = require("../models/Book")
-
+const { service, classifications } = require("../../lib/tools")
 
 module.exports = {
     index(req, res){
@@ -21,6 +21,10 @@ module.exports = {
             callback(books){
                 // total é o total de páginas
                 if (books != "") {
+                    for (const book of books) {
+                        book.genero = classifications(book.genero)
+                    }
+
                     // se a pessoa filtrar escrevendo certo:
                     const pagination = {
                         total: Math.ceil(books[0].total / limit),
@@ -42,5 +46,41 @@ module.exports = {
         }
 
         Book.paginate(params)
+    },
+
+    create(req, res){
+        return res.render('books/create')
+    },
+
+    post(req, res){
+        console.log(req.body);
+        const keys = Object.keys(req.body)
+
+        keys.forEach(key => {
+            if(req.body[key] == ""){
+                return res.send('Por favor, preencha todos os campos!')
+            }
+        })
+
+        Book.create(req.body, function(book){
+           return res.redirect('/books')
+        })
+    },
+
+    show(req, res){
+
+        Book.find(req.params.id, function(book){
+            if (!book) return res.send('Livro não encontrado')
+            
+            book.genero = classifications(book.genero)
+
+            return res.render(`books/show`, { book }) 
+        })
+    },
+
+    delete(req, res){
+        Book.delete(req.body.id, function(){
+            return res.redirect('/books')
+        })
     }
 }

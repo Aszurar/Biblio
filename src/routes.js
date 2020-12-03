@@ -10,5 +10,10 @@ routes.get('/', function(req, res){
 routes.get('/index', home.index)
 
 routes.get('/books', books.index)
+routes.get('/books/create', books.create)
+routes.get('/books/:id', books.show)
+routes.post('/books', books.post)
+
+routes.delete('/books', books.delete)
 
 module.exports = routes

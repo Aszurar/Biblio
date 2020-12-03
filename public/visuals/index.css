@@ -26,6 +26,7 @@
     from {
         transform: translateY(-6.25rem);
     }
+
     to {
         opacity: 1;
     }
@@ -126,7 +127,7 @@ button:hover{
 /* PAGINATION */
 .frame{
   display: grid;
-  /* da forma abaixo, defino o tamanho de 3 linhas, e após a barra, defino apenas 1 coluna */
+  /* da forma abaixo, defino o tamanho de 2 linhas, e após a barra, defino apenas 1 coluna */
   grid-template: 5rem 1fr / 1fr;
 }
 
@@ -164,6 +165,19 @@ button:hover{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+    padding: 1rem;
+}
+.cards a{
+  text-decoration: none;
+}
+
+.cards a{
+  filter: grayscale(70%);
+}
+
+.cards a:hover{
+  transition: 0.75s;
+  filter: none;
 }
 
 .card{
@@ -176,11 +190,52 @@ button:hover{
     color: var(--color-white);
 
     border-radius: 1rem;
-    box-shadow: 0rem 0.125rem 1.25rem 0.15rem var(--color-purple);
+    min-height: 26.875rem;
 
     padding: 1rem;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+}
+
+.card::after {
+  content: "";
+  width: 0%;
+  height: 0.2rem;
+  background-color: var(--color-black);
+  position: absolute;
+  left: 20%;
+  bottom: -1rem;
+  border-radius: 2rem;
+}
+
+.card:hover::after {
+  width: 60%;
+  transition: width 1s ease-in-out;
+}
+
+
+.card::before{
+  content: "";
+  width: 0%;
+  height: 0.2rem;
+  background-color: var(--color-black);
+  position: absolute;
+  right: 20%;
+  top: -1rem;
+  border-radius: 2rem;
+}
+
+.card:hover::before{
+  width: 60%;
+  transition: width 1s ease-in-out;
+}
+
+
+.card:hover{
+  transition: 1s;
+  /* box-shadow: 0rem 0.125rem 1.5rem 0.5rem var(--color-black); */
+
 }
 
 .avatar{
@@ -191,7 +246,7 @@ button:hover{
 }
 
 .info{
-    border-left: 1px solid var(--color-green);
+    border-left: 0.063rem solid var(--color-green);
     padding-left: 1rem;
 }
 
@@ -201,4 +256,37 @@ button:hover{
 .item div:first-child{
     color: var(--color-purple);
     font-weight: bold;
+}
+
+.item div span{
+  text-transform: uppercase;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  color: var(--color-black);
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.8rem;
+  margin: 0.2rem 0.1rem;
+}
+
+.item div span:first-child{
+  background-color: var(--color-bluebold);
+}
+
+.item div span:nth-child(2){
+  background-color: var(--color-coral);
+}
+
+.item div span:nth-child(3){
+  background-color: var(--color-gray);
+}
+
+.item div span:nth-child(4){
+  background-color: var(--color-yellow);
+}
+
+.item div span:last-child{
+  background-color: var(--color-orange);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
 }

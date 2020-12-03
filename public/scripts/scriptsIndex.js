@@ -1,4 +1,18 @@
 
+// seleção da página atual/visual
+// endereço da página atual
+const currentPage = location.pathname;
+// pegar todos links
+const links = document.querySelectorAll('.links a')
+
+// ativar determinada classe quando for o link for clicado
+links.forEach( link => {
+    if (currentPage.includes(link.getAttribute('href'))) {
+        link.classList.add('active')
+    }  
+});
+
+
 
 // selecedPage: página atual
 // totalpages: total de páginas
