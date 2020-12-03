@@ -1,124 +1,20 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-    <link rel="stylesheet" href="/visuals/create.css">
+    <link rel="stylesheet" href="/visuals/fields.css">
 {% endblock %}
 
 
 {% block content %}
     <main class="container">
-
         <form class="card" action="/books" method="POST">
             <section class="avatar"
                      style="background: url(https://source.unsplash.com/collection/430456/900x900) 
-                           no-repeat center center / cover">
+                            no-repeat center center / cover"
+                     >
             </section>
-    
-            <section class="info">
-                <h3>Novo Livro</h3>
 
-                <div class="item">
-                    <div>Título:</div>
-                    <div>
-                        <input type="text"
-                               name="title"
-                               placeholder="Digite um nome chave para o livro"
-                        >
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div>Imagem da Capa(URL):</div>
-                    <div>
-                        <input type="text" 
-                               name="imagem"
-                               placeholder="https://...">
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div>Nome Completo:</div>
-                    <div>
-                        <input type="text"
-                               name="name"
-                               placeholder="Nome completo do livro"
-                        >
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div>Quantidade de livros disponiveis:</div>
-                    <div>
-                        <input type="number"
-                               name="quantidade"
-                               placeholder="0"
-                        >
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div>Disciplina(s):</div> 
-                    <div>
-                        <input type="text"
-                               name= "disciplina"
-                               placeholder="Matemática, Português..."
-                        >
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div>Gênero(s):</div> 
-                    <div>
-                        <input type="text"
-                               name="genero"
-                               placeholder="Aventura, Fantasia, Educativo..."
-                        >
-                    </div>
-                </div>
-    
-                <div class="item">
-                    <div>Autor(es):</div> 
-                    <div>
-                        <input type="text"
-                               name="autor"
-                               placeholder="J.R.R. Tolkien"
-                        >
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div>ISBN(13):</div>
-                    <div>
-                        <input type="text"
-                               name="isbn"
-                               placeholder="111-2223334445"
-                        >
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div>Idioma:</div>
-                    <div>
-                        <input type="text"
-                               name="idioma"
-                               placeholder="Português..."
-                        >
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div>Quantidade de páginas:</div>
-                    <div>
-                        <input type="number" 
-                               name="paginas"
-                               placeholder="0"
-                        >
-                    </div>
-                </div>
-
-                <button class="buttonSave" type="submit">Salvar</button>
-            </section>
+            {% include "books/fields.njk" %}
         </form>
-
     </main>
 {% endblock %}

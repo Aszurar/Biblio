@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-    <link rel="stylesheet" href="/visuals/create.css">
+    <link rel="stylesheet" href="/visuals/fields.css">
 {% endblock %}
 
 {% block content %}
@@ -61,9 +61,9 @@
                     <div>{{book.paginas}}</div>
                 </div>
 
-                <a class="buttonEdit">Editar</a>
+                <a href="/books/{{book.id}}/edit" class="buttonEdit">Editar</a>
 
-                <form id="form-delete" action="/books?_method=DELETE" method="post">
+                <form id="form-delete" action="/books?_method=DELETE" method="POST">
                     <input type="hidden" name="id" value={{book.id}}>                
                     <button class="buttonDelete" type="submit">Deletar</button>
                 </form>

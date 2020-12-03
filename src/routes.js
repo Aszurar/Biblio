@@ -12,8 +12,9 @@ routes.get('/index', home.index)
 routes.get('/books', books.index)
 routes.get('/books/create', books.create)
 routes.get('/books/:id', books.show)
+routes.get('/books/:id/edit', books.edit)
+routes.put('/books', books.put)
 routes.post('/books', books.post)
-
 routes.delete('/books', books.delete)
 
 module.exports = routes

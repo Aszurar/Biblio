@@ -91,11 +91,13 @@ input{
 .buttonEdit{
     display: flex;
     justify-content: center;
+    text-decoration: none;
 }
 
 .buttonEdit:hover{
     transition: 0.75s;
     background-color: var(--color-green);
+    border: 0.122rem solid var(--color-white);
 }
 
 .buttonSave, .buttonDelete, .buttonEdit{

@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+    
+ {% block head %}
+    <link rel="stylesheet" href="/visuals/fields.css">     
+ {% endblock %}   
+
+{% block content%}
+<main class="container" style="max-width: 70rem">
+   <form class="card" action="/books?_method=PUT" method="POST">
+      <section class="avatar"
+               style="background: url({{book.avatar}}) 
+                      no-repeat center right / cover;
+                      margin-top: 7rem;
+                      margin-bottom: 7rem;"
+               >
+      </section>
+
+      <input type="hidden" name="id" value="{{book.id}}">
+      {% include "books/fields.njk" %}
+   </form>
+</main>
+{% endblock %}}

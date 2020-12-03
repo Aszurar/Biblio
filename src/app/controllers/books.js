@@ -49,7 +49,11 @@ module.exports = {
     },
 
     create(req, res){
-        return res.render('books/create')
+        const textInput = {
+            title: 'Novo Livro'
+        }
+
+        return res.render('books/create', { textInput })
     },
 
     post(req, res){
@@ -75,6 +79,24 @@ module.exports = {
             book.genero = classifications(book.genero)
 
             return res.render(`books/show`, { book }) 
+        })
+    },
+
+    edit(req, res){
+        const textInput = {
+            title: 'Editar Livro'
+        }
+
+        Book.find(req.params.id, function(book){
+            if (!book) return res.send('Livro não encontrado!')
+            
+            return res.render('books/edit', { book, textInput })
+        })
+    },
+
+    put(req, res){
+        Book.update(req.body, function(){
+            return res.redirect(`/books/${req.body.id}`)
         })
     },
 

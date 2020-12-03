@@ -92,6 +92,41 @@ module.exports = {
             callback(results.rows[0])
         })
     },
+
+    update(data, callback){
+        const query = `UPDATE books SET
+                            isbn = ($1),
+                            avatar = ($2),
+                            name = ($3),
+                            genero = ($4),
+                            disciplina = ($5),
+                            idioma = ($6),
+                            quantidade = ($7),
+                            paginas = ($8),
+                            title = ($9),
+                            autor = ($10)
+                        WHERE id = $11
+                      `
+        const values = [
+                data.isbn,
+                data.imagem,
+                data.name,
+                data.genero,
+                data.disciplina,
+                data.idioma,
+                data.quantidade,
+                data.paginas,
+                data.title,
+                data.autor,
+                data.id
+        ]
+
+        db.query(query, values, function(err, results){
+            if (err) throw `Database error, Update function: ${err}`
+            
+            return callback()
+        })
+    },
     
     delete(id, callback){
         const query = `DELETE FROM books
