@@ -1,6 +1,7 @@
 
 // seleção da página atual/visual
 // endereço da página atual
+const body = document.querySelector('.body')
 const currentPage = location.pathname;
 // pegar todos links
 const links = document.querySelectorAll('.links a')
@@ -9,6 +10,11 @@ const links = document.querySelectorAll('.links a')
 links.forEach( link => {
     if (currentPage.includes(link.getAttribute('href'))) {
         link.classList.add('active')
+    }
+
+    if (currentPage.includes('students')) {
+        console.log(currentPage.includes('students'));
+        body.classList.add('active')
     }  
 });
 

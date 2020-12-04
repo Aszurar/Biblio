@@ -290,3 +290,14 @@ button:hover{
   padding: 0.25rem;
   border-radius: 0.5rem;
 }
+
+
+/* INDEX - STUDENTS */
+.index-students{
+  background-color: var(--color-purple);
+}
+
+.header .search-students:hover{
+  background-color: var(--color-green);
+}
+

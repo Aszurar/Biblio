@@ -96,3 +96,8 @@ header{
     border: 0;
     color: var(--color-white);
 }
+
+.body.active{
+    background-color: var(--color-green);
+  }
+  

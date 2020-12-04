@@ -1,0 +1,79 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<link rel="stylesheet" href="/visuals/index.css">
+{% endblock %}
+
+
+{% block content %}
+ <main class="frame index-students">
+
+        <div class="header">
+            <a class="button" href="/books/create">Cadastrar Novo Livro</a>
+            <form action="/books" method="GET">
+                <input class = "search-students"
+                       type ="text" 
+                       name ="filter" 
+                       placeholder ="Nome, ISBN, Gênero ou disciplina"
+                       value = "{{filter}}"
+                >
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div class="cards">
+            {% for book in books %}
+                <a href="/books/{{book.id}}">
+                    <div class="card">
+            
+                        <section class="avatar"
+                                style="background: url({{book.avatar}}) 
+                                        no-repeat center center / cover">
+                        </section>
+            
+                        <section class="info">
+                            <h3>{{book.title}}</h3>
+            
+                            <div class="item">
+                                <div>Nome:</div>
+                                <div>{{book.name}}</div>
+                            </div>
+                            
+                            <div class="item">
+                                <div>Disciplina(s):</div> 
+                                <div>{{book.disciplina}}</div>
+                            </div>
+                            
+                            <div class="item">
+                                <div>Gênero(s):</div>
+                                <div>
+                                    {% for genero in book.genero %}
+                                        <span>{{genero}}</span>
+                                    {% endfor %} 
+                                </div>
+                            </div>
+            
+                            <div class="item">
+                                <div>Autor(es):</div> 
+                                <div>{{book.autor}}</div>
+                            </div>
+
+                            <div class="item">
+                                <div>ISBN(13):</div>
+                                <div>{{book.isbn}}</div>
+                            </div>
+                        </section>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+          
+          <div class="pages">
+                <div class ="pagination"
+                     data-page = {{pagination.page}}
+                     data-total = {{pagination.total}}
+                     data-filter = {{pagination.filter}}
+                ></div>
+          </div>
+    </main>
+{% endblock %}
