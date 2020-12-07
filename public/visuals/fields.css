@@ -66,7 +66,7 @@
 
 
 input,
-button, .buttonEdit{
+button, .buttonEdit, .item select{
     width: 100%;
     outline: none;
     font-family: 'Poppins', sans-serif;    
@@ -169,3 +169,21 @@ input{
     border-radius: 0.5rem;
 }
 
+/* Students Create*/
+
+.student-avatar{
+    border-radius: 50%;
+    width: 26rem;
+    height: 26rem;
+    margin-left: 1.7rem;
+}
+
+.item select{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.item select option{
+    color: var(--color-green);
+}

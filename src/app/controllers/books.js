@@ -1,5 +1,5 @@
 const Book = require("../models/Book")
-const { service, classifications } = require("../../lib/tools")
+const { classifications } = require("../../lib/tools")
 
 module.exports = {
     index(req, res){

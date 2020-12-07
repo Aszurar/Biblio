@@ -19,5 +19,6 @@ routes.post('/books', books.post)
 routes.delete('/books', books.delete)
 
 routes.get('/students', students.index)
+routes.get('/students/create', students.create)
 
 module.exports = routes

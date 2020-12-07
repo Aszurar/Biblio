@@ -1,0 +1,63 @@
+<section class="info">
+    <h3>{{textTitle.title}}</h3>
+
+    <div class="item">
+        <div>{{text.titles[1]}}</div>
+        <div>
+            <input type="text"
+                   name="name"
+                   placeholder="Digite o nome"
+                   value= "{{student.title}}"
+            >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>{{text.titles[0]}}:</div>
+        <div>
+            <input type="text" 
+                    name="imagem"
+                    placeholder="https://..."
+                    value= "{{student.avatar_url}}"
+                    >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>{{text.titles[2]}}</div>
+        <div>
+            <input type="text"
+                    name="matricula"
+                    placeholder="201703..."
+                    value="{{student.matricula}}"
+            >
+        </div>
+    </div>
+    
+    <div class="item">
+        <div>Email:</div> 
+        <div>
+            <input type="text"
+                    name= "email"
+                    placeholder="...@gmail.com.../...@hotmail.com"
+                    value="{{student.email}}"
+            >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>{{text.titles[4]}}</div> 
+            <select name="grades">
+                <option value= "5" {% if student.serie == "5" %}selected{% endif %}>5º {{text.grades[0]}}</option>
+                <option value= "6" {% if student.serie == "6" %}selected{% endif %}>6º {{text.grades[0]}}</option>
+                <option value= "7" {% if student.serie == "7" %}selected{% endif %}>7º {{text.grades[0]}}</option>
+                <option value= "8" {% if student.serie == "8" %}selected{% endif %}>8º {{text.grades[0]}}</option>
+                <option value= "9" {% if student.serie == "9" %}selected{% endif %}>9º {{text.grades[0]}}</option>
+                <option value= "1" {% if student.serie == "1" %}selected{% endif %}>1º {{text.grades[1]}}</option>
+                <option value= "2" {% if student.serie == "2" %}selected{% endif %}>2º {{text.grades[1]}}</option>
+                <option value= "3" {% if student.serie == "3" %}selected{% endif %}>3º {{text.grades[1]}}</option>
+            </select>
+    </div>
+
+    <button class="buttonSave" type="submit">Salvar</button>
+</section>

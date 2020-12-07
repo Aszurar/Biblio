@@ -167,15 +167,15 @@ button:hover{
     gap: 2rem;
     padding: 1rem;
 }
-.cards a{
+.student-card a{
   text-decoration: none;
 }
 
-.cards a{
+.student-card a{
   filter: grayscale(70%);
 }
 
-.cards a:hover{
+.student-card a:hover{
   transition: 0.75s;
   filter: none;
 }
@@ -258,6 +258,10 @@ button:hover{
     font-weight: bold;
 }
 
+.item div:last-child{
+    font-size: 1rem;
+}
+
 .item div span{
   text-transform: uppercase;
   padding: 0.25rem;
@@ -297,7 +301,97 @@ button:hover{
   background-color: var(--color-purple);
 }
 
-.header .search-students:hover{
-  background-color: var(--color-green);
+.header .search-students{
+  box-shadow: 0rem 0rem 1rem 0.1rem var(--color-green);
 }
 
+.header .search-students:hover{
+  background-color: var(--color-green);
+  box-shadow: 0rem 0rem 1rem 0.1rem var(--color-green);
+
+}
+
+.header .create-button-students{
+  background-color: var(--color-green);
+  box-shadow: 0rem 0rem 1rem 0.1rem var(--color-green);
+  max-width: 13.2rem;
+}
+
+.header .create-button-students:hover{
+  background-color: var(--color-white);
+  color: var(--color-green);
+  border:  0.15rem solid var(--color-green);
+}
+
+.header .search-button-students{
+  border: 0.2rem solid var(--color-green);
+  color: var(--color-green);
+  box-shadow: 0rem 0rem 1rem 0.1rem var(--color-green);
+}
+
+.header .search-button-students:hover{
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border:  0.2rem solid var(--color-white);
+}
+
+.student-avatar{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+}
+
+.student-card{
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 18.5rem;
+  background-color: var(--color-black);
+}
+/*  */
+/* .student-card:hover{ */
+  /* transition: 1s; */
+  /* background-color: var(--color-white); */
+/* } */
+
+.student-info{
+  border-top: 0.063rem solid var(--color-purple);
+  border-left: none;
+  margin: 0 1rem;
+  padding-top: 1rem;
+}
+
+.student-item div:first-child{
+  color: var(--color-green);
+}
+
+.student-item div:last-child{
+  color: var(--color-white);
+}
+
+.student-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.student-card::after {
+  background-color: var(--color-white);
+}
+
+.student-card::before{
+  background-color: var(--color-white);
+}
+
+.item .student-item .grade{
+  font-size: 1rem;
+}
+
+.item .student-item .grade.coral{
+  background-color: var(--color-coral);
+}
+
+.item .student-item .grade.orange{
+  background-color: var(--color-orange);
+}

@@ -9,62 +9,53 @@
  <main class="frame index-students">
 
         <div class="header">
-            <a class="button" href="/books/create">Cadastrar Novo Livro</a>
-            <form action="/books" method="GET">
+            <a class="button create-button-students" href="/students/create">Cadastrar Novo Aluno</a>
+            <form action="/students" method="GET">
                 <input class = "search-students"
                        type ="text" 
                        name ="filter" 
-                       placeholder ="Nome, ISBN, Gênero ou disciplina"
+                       placeholder ="Nome ou matrícula"
                        value = "{{filter}}"
                 >
-                <button type="submit">Buscar</button>
+                <button class="search-button-students"type="submit">Buscar</button>
             </form>
         </div>
 
-        <div class="cards">
-            {% for book in books %}
-                <a href="/books/{{book.id}}">
-                    <div class="card">
+        <div class="cards student-cards">
+            {% for student in students %}
+             
+                <div class="card student-card">
+                    <a href="/students/{{book.id}}">
             
-                        <section class="avatar"
-                                style="background: url({{book.avatar}}) 
+                        <section class="avatar student-avatar"
+                                 style="background: url({{student.avatar_url}}) 
                                         no-repeat center center / cover">
                         </section>
             
-                        <section class="info">
-                            <h3>{{book.title}}</h3>
+                        <section class="info student-info">
             
-                            <div class="item">
+                            <div class="item student-item">
                                 <div>Nome:</div>
-                                <div>{{book.name}}</div>
+                                <div>{{student.name}}</div>
                             </div>
                             
-                            <div class="item">
-                                <div>Disciplina(s):</div> 
-                                <div>{{book.disciplina}}</div>
+                            <div class="item student-item">
+                                <div>Matricula:</div> 
+                                <div>{{student.matricula}}</div>
                             </div>
                             
-                            <div class="item">
-                                <div>Gênero(s):</div>
-                                <div>
-                                    {% for genero in book.genero %}
-                                        <span>{{genero}}</span>
-                                    {% endfor %} 
-                                </div>
+                            <div class="item student-item">
+                                <div>Email:</div>
+                                <div style="color: var(--color-white)">{{student.email}}</span>
                             </div>
             
-                            <div class="item">
-                                <div>Autor(es):</div> 
-                                <div>{{book.autor}}</div>
-                            </div>
-
-                            <div class="item">
-                                <div>ISBN(13):</div>
-                                <div>{{book.isbn}}</div>
+                            <div class="item student-item">
+                                <div>Turma:</div> 
+                                <div><span class="grade">{{student.serie}}</span></div>
                             </div>
                         </section>
-                    </div>
-                </a>
+                     </a>
+                </div>
             {% endfor %}
         </div>
           
@@ -76,4 +67,5 @@
                 ></div>
           </div>
     </main>
+<script src="/scripts/studentIndex.js"></script>
 {% endblock %}
