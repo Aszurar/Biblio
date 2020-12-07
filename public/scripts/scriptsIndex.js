@@ -13,7 +13,6 @@ links.forEach( link => {
     }
 
     if (currentPage.includes('students')) {
-        console.log(currentPage.includes('students'));
         body.classList.add('active')
     }  
 });

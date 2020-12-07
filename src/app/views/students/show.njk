@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/visuals/fields.css">
+{% endblock %}
+
+{% block content %}
+    <main class="container" style="background-color: var(--color-purple)">
+
+        <div class="card">
+            <section class="avatar student-avatar"
+                     style="background: url({{student.avatar_url}}) 
+                           no-repeat center center / cover">
+            </section>
+    
+            <section class="info student-info">
+                <h3>{{studentTitle.title}}</h3>
+
+
+                <div class="item student-item-show show">
+                    <div>{{text.titles[1]}}</div>
+                    <div>{{student.name}}</div>
+                </div>
+
+                <div class="item student-item-show show">
+                    <div>{{text.titles[2]}}</div>
+                    <div>{{student.matricula}}</div>
+                </div>
+                
+                <div class="item student-item-show show">
+                    <div>{{text.titles[3]}}</div> 
+                    <div>{{student.email}}</div>
+                </div>
+    
+                <div class="item student-item-show show">
+                    <div>{{text.titles[4]}}</div> 
+                    <div>{{student.serie}}</div>
+                </div>
+
+                <a href="/students/{{student.id}}/edit" class="buttonEdit student-buttonEdit">{{text.edit}}</a>
+
+                <form id="form-delete" action="/students?_method=DELETE" method="POST">
+                    <input type="hidden" name="id" value={{student.id}}>                
+                    <button class="buttonDelete student-buttonDelete" type="submit">{{text.delete}}</button>
+                </form>
+
+            </section>
+        </div>
+    </main>
+{% include "../confirm.njk" %}
+{% endblock %}

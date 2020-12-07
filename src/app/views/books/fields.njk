@@ -8,6 +8,7 @@
                    name="title"
                    placeholder="Digite um nome chave para o livro"
                    value= "{{book.title}}"
+                   required
             >
         </div>
     </div>
@@ -19,6 +20,7 @@
                     name="imagem"
                     placeholder="https://..."
                     value= "{{book.avatar}}"
+                    required
                     >
         </div>
     </div>
@@ -27,10 +29,10 @@
         <div>Nome Completo:</div>
         <div>
             <input type="text"
-                    name="name"
-                    placeholder="Nome completo do livro"
-                    value= "{{book.name}}"
-
+                   name="name"
+                   placeholder="Nome completo do livro"
+                   value= "{{book.name}}"
+                   required
             >
         </div>
     </div>
@@ -39,9 +41,10 @@
         <div>Quantidade de livros disponiveis:</div>
         <div>
             <input type="number"
-                    name="quantidade"
-                    placeholder="0"
-                    value="{{book.quantidade}}"
+                   name="quantidade"
+                   placeholder="0"
+                   value="{{book.quantidade}}"
+                   required
             >
         </div>
     </div>
@@ -50,9 +53,10 @@
         <div>Disciplina(s):</div> 
         <div>
             <input type="text"
-                    name= "disciplina"
-                    placeholder="Matemática, Português..."
-                    value="{{book.disciplina}}"
+                   name= "disciplina"
+                   placeholder="Matemática, Português..."
+                   value="{{book.disciplina}}"
+                   required
             >
         </div>
     </div>
@@ -61,9 +65,10 @@
         <div>Gênero(s):</div> 
         <div>
             <input type="text"
-                    name="genero"
-                    placeholder="Aventura, Fantasia, Educativo..."
-                    value="{{book.genero}}"
+                   name="genero"
+                   placeholder="Aventura, Fantasia, Educativo..."
+                   value="{{book.genero}}"
+                   required
             >
         </div>
     </div>
@@ -72,9 +77,10 @@
         <div>Autor(es):</div> 
         <div>
             <input type="text"
-                    name="autor"
-                    placeholder="J.R.R. Tolkien"
-                    value="{{book.autor}}"
+                   name="autor"
+                   placeholder="J.R.R. Tolkien"
+                   value="{{book.autor}}"
+                   required
             >
         </div>
     </div>
@@ -83,9 +89,10 @@
         <div>ISBN(13):</div>
         <div>
             <input type="text"
-                    name="isbn"
-                    placeholder="111-2223334445"
-                    value="{{book.isbn}}"
+                   name="isbn"
+                   placeholder="111-2223334445"
+                   value="{{book.isbn}}"
+                   required
             >
         </div>
     </div>
@@ -94,9 +101,10 @@
         <div>Idioma:</div>
         <div>
             <input type="text"
-                    name="idioma"
-                    placeholder="Português..."
-                    value={{book.idioma}}
+                   name="idioma"
+                   placeholder="Português..."
+                   value={{book.idioma}}
+                   required
             >
         </div>
     </div>
@@ -105,9 +113,10 @@
         <div>Quantidade de páginas:</div>
         <div>
             <input type="number" 
-                    name="paginas"
-                    placeholder="0"
-                    value="{{book.paginas}}"
+                   name="paginas"
+                   placeholder="0"
+                   value="{{book.paginas}}"
+                   required
             >
         </div>
     </div>

@@ -40,34 +40,22 @@ module.exports = {
     },
 
     create(data, callback){
-
-        const query = `
-            INSERT INTO students(
-                isbn,
-                avatar,
-                name,
-                genero,
-                disciplina,
-                idioma,
-                quantidade,
-                paginas,
-                title,
-                autor
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
-            RETURNING id
-        `
+        const query = `INSERT INTO students(
+                            name,
+                            avatar_url,
+                            email,
+                            serie,
+                            matricula
+                        ) VALUES ($1, $2, $3, $4, $5)
+                        RETURNING id
+                      `
 
         const values = [
-            data.isbn,
-            data.imagem,
             data.name,
-            data.genero,
-            data.disciplina,
-            data.idioma,
-            data.quantidade,
-            data.paginas,
-            data.title,
-            data.autor
+            data.imagem,
+            data.email,
+            data.grades,
+            data.matricula
         ]
 
         console.log(values);
@@ -92,36 +80,26 @@ module.exports = {
 
     update(data, callback){
         const query = `UPDATE students SET
-                            isbn = ($1),
-                            avatar = ($2),
-                            name = ($3),
-                            genero = ($4),
-                            disciplina = ($5),
-                            idioma = ($6),
-                            quantidade = ($7),
-                            paginas = ($8),
-                            title = ($9),
-                            autor = ($10)
-                        WHERE id = $11
+                            name = ($1),
+                            avatar_url = ($2),
+                            email = ($3),
+                            serie = ($4),
+                            matricula = ($5)
+                        WHERE id = $6
                       `
         const values = [
-                data.isbn,
-                data.imagem,
                 data.name,
-                data.genero,
-                data.disciplina,
-                data.idioma,
-                data.quantidade,
-                data.paginas,
-                data.title,
-                data.autor,
+                data.imagem,
+                data.email,
+                data.grades,
+                data.matricula,
                 data.id
         ]
 
         db.query(query, values, function(err, results){
             if (err) throw `Database error, Update function: ${err}`
             
-            return callback()
+            callback()
         })
     },
     
