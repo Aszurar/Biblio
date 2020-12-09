@@ -1,0 +1,80 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<title>Livros</title>   
+<link rel="stylesheet" href="/visuals/index.css"> 
+{% endblock %}
+
+{% block content %}
+    <main class="frame">
+
+        <div class="header">
+            <a class="button" href="/books/create">Cadastrar novo Empréstimo</a>
+            <form action="/books" method="GET">
+                <input type ="text" 
+                       name ="filter" 
+                       placeholder ="Matrícula ou ISBN"
+                       value = "{{filter}}"
+                >
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <table>
+            {# cabeçalho da tabela #}
+            <thead>
+                {# linha do cabeçalho  #}
+                <tr>
+                    {# coluna do cabeçalho #}
+                    <th>Empréstimo:</th>
+                    <th></th>
+                    <th>ISBN:</th>
+                    <th>Matrícula:</th>
+                    <th>Data:</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for loan in loans %}
+                    <tr class= "loan-table">
+                        <td>{{loan.id}}</td>
+                        {# <td>{{}}</td> #}
+
+                        {# <td> #}
+                            {# <span style="background-image: url({{teacher.avatar_url}})"></span> #}
+                            {# {{teacher.name}} #}
+                        {# </td> #}
+                        <td>{{loan.bookisbn}}</td>
+
+                        {# <td>{{loan}}</td> #}
+
+                        <td>{{loan.regisstudent}}</td>
+
+                        <td>{{loan.date}}</td>
+                        {# <td> #}
+                            {# {% for class in teacher.classes %} #}
+                                {# <span class="classes">{{class}}</span> #}
+                            {# {% endfor %} #}
+                        {# </td> #}
+{#  #}
+                        {# <td class = "total_students"> #}
+                            {# <span class="amount_student">{{teacher.total_students}}</span> #}
+                        {# </td> #}
+                        
+                        {# <td class="button-about"> #}
+                            {# <a href="/teachers/{{teacher.id}}">VER</a> #}
+                        {# </td> #}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+          
+          {# <div class="pages"> #}
+                {# <div class ="pagination" #}
+                     {# data-page = {{pagination.page}} #}
+                     {# data-total = {{pagination.total}} #}
+                     {# data-filter = {{pagination.filter}} #}
+                {# ></div> #}
+          {# </div> #}
+    </main>
+{% endblock %}

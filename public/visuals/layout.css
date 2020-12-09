@@ -48,7 +48,7 @@ header{
 }
 
 .links a:first-child{
-    margin-right: 46rem;
+    margin-right: 39rem;
     font-weight: bold;
     font-style: oblique;
     text-shadow: 0.7rem 0.2rem 0.35rem var(--color-purple);

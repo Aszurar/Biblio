@@ -395,3 +395,17 @@ button:hover{
 .item .student-item .grade.orange{
   background-color: var(--color-orange);
 }
+
+
+/* LOANS */
+.frame table{
+  margin: 2rem 0;
+  width: 100%;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 1rem;
+}
+
+.frame table tr td{
+  text-align: center;
+}

@@ -2,6 +2,7 @@ const exprees = require('express')
 const routes = exprees.Router();
 const books = require('./app/controllers/books')
 const home = require('./app/controllers/home')
+const loans = require('./app/controllers/loans')
 const students = require('./app/controllers/students')
 
 routes.get('/', function(req, res){
@@ -26,5 +27,6 @@ routes.get('/students/:id/edit', students.edit)
 routes.put('/students', students.put)
 routes.delete('/students', students.delete)
 
+routes.get('/loans', loans.index)
 
 module.exports = routes
