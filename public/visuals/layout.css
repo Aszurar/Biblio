@@ -97,7 +97,10 @@ header{
     color: var(--color-white);
 }
 
-.body.active{
+.body.students{
     background-color: var(--color-green);
+}
+
+.body.loans{
+    background-color: var(--color-coral);
   }
-  

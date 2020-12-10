@@ -225,3 +225,118 @@ input{
     color: var(--color-white);
     border: 0.122rem solid var(--color-white);
 }
+
+
+/* LOANS - CREATE */
+.loan-card{
+    grid-template-columns: 40% 60%;
+    min-height: 25rem;
+}
+
+.loan-card .info{
+    align-items: center;
+}
+
+.loan-card .info{
+    border-left: 0.2rem solid var(--color-coral);
+}
+
+.loan-card .info h3{
+    margin-bottom: 2rem;
+
+    border: 0.122rem solid var(--color-coral);
+}
+.loan-card .info .item{
+    border-bottom: 0.063rem solid var(--color-white);
+}
+
+.loan-card .info .item input::-webkit-input-placeholder{
+    color: var(--color-coral);
+}
+
+.loan-card .info .buttonSave{
+    margin-top: 2.5rem;
+    border: 0.122rem solid var(--color-coral);
+}    
+
+.loan-card .info .buttonSave:hover{
+    background-color: var(--color-coral);
+    border: 0.122rem solid var(--color-white);
+
+}    
+
+
+.loan-img{
+    margin: 1rem 1.5rem 1rem 0;
+    max-width: 40%;
+}
+
+.loan-img:first-child{
+    border-radius: 50%;
+    margin: 0rem auto;
+}
+
+.loan-img:last-child{
+    margin: 1rem auto;
+}
+
+/* Show-Loan */
+
+.loan-img-show-field section{
+    margin: 2rem 2rem 2rem 0;
+}
+.loan-img-show-field section section:first-child{
+    margin-top: 1.5rem;
+    height: 40%;
+    max-width: 66%;
+}
+
+.loan-img-show-field section section:last-child{
+    margin-top: 2rem;
+    height: 50%;
+    max-width: 66%;
+}
+
+.loan-info{
+    border-left: 0.2rem solid var(--color-coral);
+}
+.loan-info h3{
+    border: 0.122rem solid var(--color-coral);
+}
+
+.loan-info h2{
+    margin-top: 2rem;
+    text-align: center;
+    background-color: var(--color-coral);
+    border-radius: 0.5rem;
+    letter-spacing: 0.25rem;
+    color: var(--color-black);
+    font-size: 1.25rem;
+}
+
+.loan-show{
+    border-bottom: 0.063rem solid var(--color-white);
+}
+.loan-show div:first-child{
+    color: var(--color-coral);
+}
+
+.loan-info div:nth-child(9){
+    margin-top: 2rem;
+}
+
+.loan-date{
+    text-align: center;
+    background-color: var(--color-coral);
+    border-radius: 0.5rem;
+    letter-spacing: 0.25rem;
+}
+
+.loan-buttonEdit, .loan-buttonDelete{
+    border: 0.122rem solid var(--color-coral);
+}
+
+.loan-buttonEdit:hover, .loan-buttonDelete:hover{
+    transition: 1s;
+    background-color: var(--color-coral);
+}

@@ -8,13 +8,19 @@ const links = document.querySelectorAll('.links a')
 
 // ativar determinada classe quando for o link for clicado
 links.forEach( link => {
+
+    console.log(link.getAttribute('href'));
     if (currentPage.includes(link.getAttribute('href'))) {
         link.classList.add('active')
     }
 
     if (currentPage.includes('students')) {
-        body.classList.add('active')
-    }  
+        body.classList.add('students')
+    }
+    if (currentPage.includes('loans')) {
+        body.classList.remove('students')
+        body.classList.add('loans')
+    }   
 });
 
 

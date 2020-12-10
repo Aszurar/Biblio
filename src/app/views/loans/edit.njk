@@ -1,0 +1,30 @@
+{% extends "layout.njk" %}
+    
+ {% block head %}
+ <title>{{edit}}</title>
+    <link rel="stylesheet" href="/visuals/fields.css">     
+ {% endblock %}   
+
+{% block content%}
+<main class="container" style="background-color: var(--color-white)">
+   <form class="card loan-card" action="/loans?_method=PUT" method="POST">
+
+      <section>
+         <section class="avatar loan-img"
+                  style="background: url({{loan.student_avatar}}) 
+                         no-repeat center right / cover; height: 40%;"
+                  >
+         </section>
+
+         <section class="avatar loan-img"
+                  style="background: url({{loan.book_avatar}}) 
+                         no-repeat center right / cover; height: 55%;"
+                  >
+         </section>
+      </section>
+
+      <input type="hidden" name="id" value="{{loan.id}}">
+      {% include "loans/fields.njk" %}
+   </form>
+</main>
+{% endblock %}}

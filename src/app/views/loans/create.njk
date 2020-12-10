@@ -1,0 +1,20 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>{{creat}}</title>
+    <link rel="stylesheet" href="/visuals/fields.css">
+{% endblock %}
+
+
+{% block content %}
+    <main class="container" style="background-color: var(--color-white)">
+        <form class="card loan-card" action="/loans" method="POST">
+                <section class="avatar"
+                        style="background: url(https://source.unsplash.com/collection/430456/400x400) 
+                                no-repeat center center / cover;"
+                        >
+                </section>
+            {% include "loans/fields.njk" %}
+        </form>
+    </main>
+{% endblock %}

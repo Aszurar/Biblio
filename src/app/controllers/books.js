@@ -67,7 +67,7 @@ module.exports = {
         })
 
         Book.create(req.body, function(book){
-           return res.redirect('/books')
+           return res.redirect(`/books/${book.id}`)
         })
     },
 

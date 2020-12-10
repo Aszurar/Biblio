@@ -107,6 +107,7 @@ module.exports = {
                             autor = ($10)
                         WHERE id = $11
                       `
+        
         const values = [
                 data.isbn,
                 data.imagem,
@@ -123,7 +124,8 @@ module.exports = {
 
         db.query(query, values, function(err, results){
             if (err) throw `Database error, Update function: ${err}`
-            
+                console.log(results.rows[0]);
+                
             return callback()
         })
     },

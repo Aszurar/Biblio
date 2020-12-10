@@ -1,0 +1,29 @@
+<section class="info" style="align-items: center;">
+    <h3>{{textTitle.title}}</h3>
+
+    <div class="item">
+        <div>{{text.titles[0]}}</div>
+        <div>
+            <input type="text"
+                   name="matricula"
+                   placeholder="201700..."
+                   value= "{{loan.regis_student}}"
+                   required
+            >
+        </div>
+    </div>
+
+    <div class="item">
+        <div>{{text.titles[1]}}</div>
+        <div>
+            <input type="text" 
+                    name="isbn"
+                    placeholder="111-2223334445"
+                    value= "{{loan.book_isbn}}"
+                    required
+                    >
+        </div>
+    </div>
+
+    <button class="buttonSave" type="submit">Salvar</button>
+</section>

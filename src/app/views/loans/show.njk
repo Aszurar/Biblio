@@ -1,0 +1,77 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>{{show[0]}} {{loan.id}}</title>
+    <link rel="stylesheet" href="/visuals/fields.css">
+{% endblock %}
+
+{% block content %}
+    <main class="container" style="background-color: var(--color-white)">
+
+        <div class="card loan-img-show-field">
+            <section>
+                <section class="avatar loan-img"
+                        style="background: url({{loan.student_avatar}}) 
+                                no-repeat center right / cover;"
+                        >
+                </section>
+        
+                <section class="avatar loan-img"
+                        style="background: url({{loan.book_avatar}}) 
+                                no-repeat center right / cover;"
+                        >
+                </section>
+            </section>
+    
+            <section class="info loan-info">
+                <h3>{{show[0]}} {{loan.id}}</h3>
+                
+                <h2><span>Aluno</span></h2>
+                <div class="item loan-show show">
+                    <div>Nome:</div>
+                    <div>{{loan.student_name}}</div>
+                </div>
+
+                <div class="item loan-show show">
+                    <div>Matricula:</div>
+                    <div>{{loan.regis_student}}</div>
+                </div>
+                
+                <div class="item loan-show show">
+                    <div>Email:</div> 
+                    <div>{{loan.student_email}}</div>
+                </div>
+
+                <h2><span>Livro</span></h2>
+                <div class="item loan-show show">
+                    <div>Nome:</div>
+                    <div>{{loan.book_name}}</div>
+                </div>
+
+                <div class="item loan-show show">
+                    <div>ISBN:</div>
+                    <div>{{loan.book_isbn}}</div>
+                </div>
+
+                <div class="item loan-show show">
+                    <div>Data do Empréstimo:</div> 
+                    <div class="loan-date">{{loan.date}}</div>
+                </div>
+
+                <div class="item loan-show show">
+                    <div>Devolução em:</div> 
+                    <div class="loan-date">{{loan.final_date}}</div>
+                </div>
+
+                <a href="/loans/{{loan.id}}/edit" class="buttonEdit loan-buttonEdit">{{text.edit}}</a>
+
+                <form id="form-delete" action="/loans?_method=DELETE" method="POST">
+                    <input type="hidden" name="id" value={{loan.id}}>                
+                    <button class="buttonDelete loan-buttonDelete" type="submit">{{text.delete}}</button>
+                </form>
+
+            </section>
+        </div>
+    </main>
+{% include "../confirm.njk" %}
+{% endblock %}

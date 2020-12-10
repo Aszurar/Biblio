@@ -28,5 +28,11 @@ routes.put('/students', students.put)
 routes.delete('/students', students.delete)
 
 routes.get('/loans', loans.index)
+routes.get('/loans/create', loans.create)
+routes.post('/loans', loans.post)
+routes.get('/loans/:id', loans.show)
+routes.get('/loans/:id/edit', loans.edit)
+routes.put('/loans', loans.put)
+routes.delete('/loans', loans.delete)
 
 module.exports = routes

@@ -1,38 +1,70 @@
 const { classifications, nameTitle, grade, date } = require("../../lib/tools")
 const Loan = require('../models/Loan')
+const { creat, edit, home, show } = require("../../lib/info")
 
-// const text = {
-    // titles: ["Avatar(URL):", "Nome completo:", "Matrícula:", "Email:", "Série:"],
-    // grades: ["ano do Ensino Fundamental", "ano do Ensino Médio"],
-    // save: "Salvar",
-    // delete: "Deletar",
-    // edit: "Editar"
-// }   
+const text = {
+    titles: ["Matricula do Aluno:", "ISBN do livro a ser Emprestado:"],
+    save: "Salvar",
+    delete: "Deletar",
+    edit: "Editar"
+}   
 
 module.exports = {
     index(req, res){
-        Loan.all(function(loans){
-            let booksAvatar = []
+        let { filter, page, limit } = req.query
+        // console.log(filter);
 
-            for (let loan of loans) {
-                loan.date = date(loan.date).format
+        // console.log(filter);
+        // filter = String(filter)
+        // quantidade  de páginas
+        page = page || 1
+        // limite de livros na página
+        limit = limit || 6
+        // 'indíce" dos livros estarão presentes naquela página
+        offset = limit * (page - 1)
 
-                Loan.findByISBN(loan.isbn, function(bookAvatar){
-                    booksAvatar.push(bookAvatar)
-                })
-            
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(loans){
+                // total é o total de páginas
+                if (loans != "") {
+                    for (let loan of loans) {
+                        loan.date = date(loan.date).format
+                        loan.students_name = nameTitle(loan.students_name)
+                        loan.final_date = date(loan.final_date).format
+                    }
+
+                    // se a pessoa filtrar escrevendo certo:
+                    const pagination = {
+                        total: Math.ceil(loans[0].total / limit),
+                        page
+                    }
+                
+                    return res.render("loans/index", { loans, pagination, filter, home })
+
+                } else {
+                    // se a pessoa filtrar escrevendo errado:
+                    const pagination = {
+                        total: 0,
+                        page
+                    }
+
+                    return res.render("loans/index", { loans, pagination, filter, home })
+                } 
             }
-
-            return res.render("loans/index", { loans, booksAvatar })
-        })
+        }
+        Loan.paginate(params)
 },
 
     create(req, res){
         const textTitle = {
-            title: 'Novo Estudante'
+            title: 'Novo Empréstimo'
         }
-
-        return res.render('students/create', { textTitle, text})
+        console.log(creat);
+        return res.render('loans/create', { textTitle, text, creat})
     },
 
     post(req, res){
@@ -45,48 +77,48 @@ module.exports = {
             }
         })
 
-        Student.create(req.body, function(student){
-           return res.redirect(`/students/${student.id}`)
+        Loan.create(req.body, function(loan){
+           return res.redirect(`/loans`)
         })
     },
 
     show(req, res){
+        Loan.findAll(req.params.id, function(loan){
+            if (!loan) return res.send('Empréstimo não encontrado')
 
-        Student.find(req.params.id, function(student){
-            if (!student) return res.send('Livro não encontrado')
+            loan.date = date(loan.date).format
+            loan.student_serie = grade(loan.student_serie)
+            loan.book_genero = classifications(loan.book_genero)
+            loan.final_date = date(loan.final_date).format
             
-            student.serie = grade(student.serie)
-            const studentTitle = {
-                title: nameTitle(student.name)
-            }
-            // student.genero = classifications(student.genero)
-
-            return res.render(`students/show`, { student, text, studentTitle }) 
+            console.log(loan);
+            return res.render(`loans/show`, { loan, text, show }) 
         })
     },
 
     edit(req, res){
         const textTitle = {
-            title: 'Editar Livro'
+            title: 'Editar Empréstimo'
         }
 
-        Student.find(req.params.id, function(student){
-            if (!student) return res.send('Livro não encontrado!')
+        Loan.findEdit(req.params.id, function(loan){
+            if (!loan) return res.send('Empréstimo não encontrado!')
             
-            return res.render('students/edit', { student, textTitle, text })
+            return res.render('loans/edit', { loan, textTitle, text, edit })
         })
     },
 
     put(req, res){
-        Student.update(req.body, function(){
-            // console.log(student);
-            return res.redirect(`/students/${req.body.id}`)
+        Loan.update(req.body, function(){
+            console.log(req.body);
+            return res.redirect(`/loans`)
         })
     },
 
     delete(req, res){
-        Student.delete(req.body.id, function(){
-            return res.redirect('/students')
+        Loan.delete(req.body.loan_id, function(){
+            return res.redirect('/loans')
         })
     }
 }
+

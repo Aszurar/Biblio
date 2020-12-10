@@ -167,6 +167,10 @@ button:hover{
     gap: 2rem;
     padding: 1rem;
 }
+
+.cards a{
+  text-decoration: none;
+}
 .student-card a{
   text-decoration: none;
 }
@@ -398,14 +402,125 @@ button:hover{
 
 
 /* LOANS */
+.loans-frame{
+  background-color: var(--color-black);
+ 
+}
+
+.loans-frame .header .button{
+  background-color: var(--color-white);
+  color: var(--color-coral);
+  border: 0.2rem solid var(--color-coral);
+  max-width: 16.4rem;
+}
+
+.loans-frame .header input, .loans-frame .header .button, .loans-frame .header button{
+  box-shadow:none;
+
+}
+
+.loans-frame .header input:hover, .loans-frame .header button:hover, .loans-frame .header .button:hover{
+  transition: 1s;
+  background-color: var(--color-coral);
+  color: var(--color-white);
+  box-shadow: 0.1rem 0.1rem 4rem var(--color-coral);
+
+}
+
+.loans-frame .header button{
+  color: var(--color-coral);
+  border: 0.2rem solid var(--color-coral);
+  outline: none;
+
+}
+
 .frame table{
   margin: 2rem 0;
   width: 100%;
   background-color: var(--color-black);
+  border: 0.2rem solid var(--color-coral);
+  border-spacing: 0;
   color: var(--color-white);
   border-radius: 1rem;
 }
 
+.frame table tr th{
+  color: var(--color-coral);
+  text-align: center;
+}
+
 .frame table tr td{
   text-align: center;
+}
+
+td, th{
+  padding: 0.8rem;
+}
+
+th{
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.loan-buttonRemove{
+  color: var(--color-white);
+  background-color: var(--color-coral);
+  border: 0.15rem solid var(--color-coral);
+  padding: 0.3rem;
+  width: 70%;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: none;
+  outline: none;
+  border-radius: 1rem;
+}
+
+.showButton{
+  text-decoration: none;
+  color: var(--color-coral);
+  background-color: var(--color-white);
+  border: 0.15rem solid var(--color-coral);
+  
+  border-radius: 1rem;
+  font-weight: bold;
+  font-style: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0.4rem;
+
+}
+
+.showButton:hover{
+  transition: 1s;
+  color: var(--color-white);
+  background-color: var(--color-coral);
+  box-shadow: 0rem 0.125rem 1.25rem 0.15rem var(--color-coral);
+
+}
+
+.loan-buttonRemove:hover{
+  transition: 1s;
+  color: var(--color-coral);
+  background-color: var(--color-white);
+  border: 0.15rem solid var(--color-coral);
+  box-shadow: 0rem 0.125rem 1.25rem 0.15rem var(--color-coral);
+
+} 
+
+.pagination span{
+  cursor: alias;
+  color: var(--color-coral);
+}
+
+.loans-frame .pagination a{
+  color: var(--color-white);
+}
+.loans-frame .pagination a:hover{
+  color: var(--color-coral);
+  border-bottom: 0.063rem solid var(--color-coral);
 }
